@@ -1,3 +1,5 @@
+from termcolor import colored
+
 def compare_text_files(file1, file2):
     with open(file1, 'r') as f1, open(file2, 'r') as f2:
         text1 = f1.read()
@@ -8,7 +10,7 @@ def compare_text_files(file1, file2):
             return
 
 #        comparison = [' ' if c1 == c2 else '^' for c1, c2 in zip(text1, text2)]
-        comparison = [c1 if c1 == c2 else '-' for c1, c2 in zip(text1, text2)]
+        comparison = [colored(c1, 'green') if c1 == c2 else '-' for c1, c2 in zip(text1, text2)]
                
         print("Comparison Result:")
         print(''.join(comparison))
